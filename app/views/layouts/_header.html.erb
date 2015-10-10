@@ -1,2 +1,27 @@
 <div class="header">
+
+	<div class="headerContainer">
+		<% if logged_in? %>
+			<p class="headerContainerWelcomeText">
+				Hi, <%=current_user.first_name%>!
+			</p>
+			<a href="/sell">	
+				<div class="headerContainerLink">
+					Sell
+				</div>
+			</a>
+			<a href="/buy">	
+				<div class="headerContainerLink">
+					Buy
+				</div>
+			</a>
+
+			<!-- <a href="/logout"> -->
+			<%= link_to "/logout", method: :post do %>
+				<div class="headerContainerLink">
+					Logout
+				</div>
+			<% end %>
+		<% end %>
+	</div>
 </div>

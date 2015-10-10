@@ -1,0 +1,24 @@
+<div class="homeContainer">
+	<p class = "homeContainerText superLargeText">
+		Welcome to SC Market!
+	</p>
+	<div class="homeContainerLoginBox">
+		<p class="largeText centerText">
+			Sign In!
+		</p>
+
+		<%= form_for @user, url: {action: "login"}, html: {class: "loginForm"} do |form| %>
+			<p class="mediumText">
+			Enter email
+			</p> 
+			<%= form.text_field :email %>
+			<br>
+			<p class="mediumText">
+			Enter password:
+			</p>
+			<%= form.password_field :password%>
+			<br>
+			<%= form.submit "Login" %>
+		<% end %>
+	</div>
+</div>

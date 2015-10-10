@@ -12,7 +12,7 @@ module SessionsHelper
 		session[:current_user_id]
 	end
 
-	def logout
+	def logout_user
 		puts "Trying to logout"
 		session.delete :current_user_id
 		@current_user = nil
@@ -24,6 +24,7 @@ module SessionsHelper
 	end
 
 	def authenticate (email, password)
+		puts "Email: #{email}\nPassword: #{password}"
 		candidate = User.find_by(:email => email)
 		if !candidate.blank?
 			if candidate.password_hash.blank?
@@ -33,8 +34,8 @@ module SessionsHelper
 				# use bycrpyt override
 				if candidate.password == password
 					set_current_user(candidate) 
-				else 
 					
+					true
 				end
 			end
 		else

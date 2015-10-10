@@ -2,12 +2,12 @@
 	/*width: 80%;*/
 	max-width: 900px;
 	min-width: 600px;	
+	margin: auto;
 }
 
 .homeContainerText {
 	text-align: center;
 }
-
 .homeContainerLoginBox {
 	margin: auto;
 	width: 60%;	
