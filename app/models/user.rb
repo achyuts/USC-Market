@@ -1,11 +1,14 @@
+require 'bcrypt'
+
 class User < ActiveRecord::Base
+	include BCrypt
+
 	has_many :listings
 	has_many :preferences
 
-	include BCrypt
 
 	def password
-		@password ||= Password.new(password_hash)
+		# @password ||= Password.new(self.password_hash)
 	end
 
 	def password=(new_password)

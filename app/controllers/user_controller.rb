@@ -19,10 +19,10 @@ class UsersController < ApplicationController
 		# 
 		# end
 
-		if authenticate(params[:email], params[:password]) 
-			puts "User #{params}: authenticated"
-		else
-			puts "User #{params}: NOT authenticated"
-		end
+		# if authenticate(params[:email], params[:password]) 
+		# 	puts "User #{params}: authenticated"
+		# else
+		# 	puts "User #{params}: NOT authenticated"
+		# end
 	end
 end
