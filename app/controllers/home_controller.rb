@@ -14,7 +14,7 @@ class HomeController < ApplicationController
 		easy = SMSEasy::Client.new
 
 		# Deliver a simple message.
-		easy.deliver("13107103460", "verizon", "Hey!") 
+		easy.deliver("3107103460", "verizon", "Hey!") 
 		# render :json => []
 	end
 end
