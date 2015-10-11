@@ -1,15 +1,29 @@
 class UserController < ApplicationController
 	include SessionsHelper
-	def create 
+	def create_user 
 		puts "Attempting to create user"
-		@user = User.new(params[:user])
-		@user.password = params[:password]
+		# puts params["user"]["first_name"]
+		# params = params[:user]["u"]
+		@user = User.new({
+			first_name: params["user"][:first_name],
+			last_name: params["user"][:last_name],
+			facebook_id: params["user"][:facebook_id],
+			email: params["user"][:email],
+			phone_number: params["user"][:phone_number]})
+
+
 
 		if @user.save!
+			@user.password = params[:password]
 			# redirect_to :home
 			puts "User saved:"
 			puts @user
 		end
+		redirect_to "/"
+	end
+
+	def form
+		@user = User.new()
 	end
 
 	def index

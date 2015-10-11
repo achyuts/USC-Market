@@ -1,0 +1,11 @@
+.createUserContainer {
+	width: 600px;
+	border: 1px solid  black;
+	display: table;
+	padding: 10px;
+	margin: auto;
+}
+
+.createUserForm {
+	width: 100%;
+}

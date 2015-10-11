@@ -31,9 +31,11 @@ def seed
 		u.save!
 	end
 
-	createCategories
+	if Category.all.count == 0
+		createCategories
+	end
 
-	for i in 1..10
+	for i in 1..100
 		createListing
 	end
 end

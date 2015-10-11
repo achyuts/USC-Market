@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
 
 
+  # user registration
+  get '/register' => "user#form"
+  post '/create_user' => "user#create_user"
+
   get '/sendText' => 'home#sendText'
+
   # api crap
   get '/categories/api' => "category#api"
   get '/categories/:category_name/api' => "listing#api"

@@ -14,6 +14,8 @@ gem 'rails', '4.2.1'
 
 gem 'twilio-ruby'
 
+gem 'heroku'
+
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '1.3.8'
 

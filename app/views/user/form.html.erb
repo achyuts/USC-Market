@@ -1,0 +1,35 @@
+<div class="createUserContainer">
+	<p class="largeText centerText">
+		Registration
+	</p>
+
+	<%= form_for(@user, url:{action: "create_user"}, html: {class: "createUserForm"}) do |form| %>
+		<span class="mediumText">First Name:</span>
+		<%= form.text_field :first_name %>
+		<br>
+
+		<span class="mediumText">Last Name:</span>
+		<%= form.text_field :last_name %>
+		<br>
+
+		<span class="mediumText">Email:</span>
+		<%= form.text_field :email %>
+		<br>
+
+		<!-- <span class="mediumText">Confirm Email:</span> -->
+
+		<span class="mediumText">Password:</span>
+		<%= form.password_field :password %>
+		<br>
+
+		<span class="mediumText">Phone Number (only for notifications): </span>
+		<%= form.text_field :phone_number %>
+		<br>
+
+		<span class="mediumText">Facebook Link (e.g.: www.facebook.com/jamal.moon.1):</span>
+		<%= form.text_field :facebook_id %>
+		<br>
+
+		<%= form.submit "Register"%>
+	<% end %>
+</div>
