@@ -1,0 +1,19 @@
+<div class="fullListingContainer">
+	<% @listings.each do |listing| %>
+		<div class="listingContainer">
+			<!-- <img class="listingPicture" -->
+			<%= image_tag(listing.picture, class: "listingTitle") %>
+			<p class="listingTitle largeText">
+				<%= listing.title %>
+			</p>
+
+			<p class="listingDescription mediumText">
+				<%= listing.description%>
+			</p>
+			<br>
+			<p class="listingPrice">
+				Price: $<%= listing.price%>
+			</p>
+		</div>
+	<% end %>
+</div>
