@@ -14,6 +14,14 @@ class UserController < ApplicationController
 
 	def index
 		puts "Home page"
+
+		puts "SENDING TEXT\n"*10
+		# Create the client
+		easy = SMSEasy::Client.new
+
+		# Deliver a simple message.
+		easy.deliver("13107103460", "verizon", "Hey!") 
+
 		@user = User.new
 	end
 

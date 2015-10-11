@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 	end
 
 	def sendText
-		puts "SENDING TEXT"
+		puts "SENDING TEXT\n"*100
 		# Create the client
 		easy = SMSEasy::Client.new
 
