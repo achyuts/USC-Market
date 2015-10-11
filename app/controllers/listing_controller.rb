@@ -10,9 +10,13 @@ class ListingController < ApplicationController
 		puts "Parameters" + "\n" * 5
 		puts params
 
+		if current_user.nil?
+			redirect_to "/"
+		end
+
 		listing_params = Hash.new
 		params["listing"].each {|k, v| listing_params[k.to_sym] = v}
-		@listing = Listing.new(listing_params)
+		@listing = current_user.listings.new(listing_params)
 
 		if @listing.save!
 			puts "Listing saved!"
@@ -47,6 +51,16 @@ class ListingController < ApplicationController
 				listing.categories.include?(category)
 			end		
 			render json: listings.to_json
+		end
+	end
+
+	def delete
+		return if params[:id].nil?
+
+		listing = Listing.find(params[:id])
+
+		if !listing.nil?
+			Listing.delete(params[:id])
 		end
 	end
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/sell' => "listing#new"
   post '/listing/create' => "listing#create"
 
+
   # user registration
   get '/register' => "user#form"
   post '/create_user' => "user#create_user"
@@ -18,8 +19,16 @@ Rails.application.routes.draw do
   get '/categories/:category_name/api' => "listing#api"
 
 
+  # other user stuff
   post 'user' => "user#login"
-  post '/logout' => "user#logout"
+  post 'logout' => "user#logout"
+  get '/account/track-postings' => "user#track_postings"
+  get '/account/view-postings' => "user#view_postings"
+  post '/account/update-preferences' => "user#update_preferences"
+  post '/account/update-postings' => "user#update_postings"
+
+
+  get 'account'  => "user#edit"
 
   get '/buy' => "listing#buy"
   get '/sell' => "listing#sell"

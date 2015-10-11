@@ -9,3 +9,21 @@
 .createUserForm {
 	width: 100%;
 }
+
+.editUserContainer {
+	border: 1px solid black;
+	display: table;
+	padding: 60px;
+	margin: auto;
+}
+
+.editUserButton {
+	width: 200px;
+	height: 100px;
+	margin: 25px 0;
+	text-align: center;	
+}
+
+.editUserCenterContainer {
+	display: table;
+}

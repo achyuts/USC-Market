@@ -1,0 +1,33 @@
+<div class = "fullListingContainer">
+	<% if @postings.nil? %>
+		<p class="largeText centerText">
+			You have no items listed! 
+		</p>
+		<p class="mediumText centerText">
+			(they will appear here when you start to sell)
+			</p>
+	<% else %>
+
+		<div class ="listingContainer">
+			<% @postings.each do |posting| %>
+				<p class="listingTitle largeText">
+					<%= posting.title %>
+				</p>
+
+				<p class="listingDescription mediumText">
+					<%= posting.description%>
+				</p>
+				<br>
+				<p class="listingPrice">
+					Price: $<%= posting.price%>
+				</p>		
+			<% end %> 
+
+			<a href="/listings/delete/<%=posting.id%>">
+				<button class="	removeButton">	
+				Remove Listing 
+				</button>
+			</a>
+		</div>
+	<% end %>
+</div>

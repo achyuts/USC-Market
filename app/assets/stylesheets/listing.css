@@ -45,3 +45,9 @@
 .priceTextField {
 	width: 60px;
 }
+
+.removeButton {
+	float: right;
+	height: 40px;
+	width: 80px;
+}

@@ -1,5 +1,10 @@
 class UserController < ApplicationController
 	include SessionsHelper
+
+	def edit
+
+	end
+
 	def create_user 
 		puts "Attempting to create user"
 		# puts params["user"]["first_name"]
@@ -66,5 +71,18 @@ class UserController < ApplicationController
 		puts "Attempting to logout the user: #{current_user}"
 		logout_user
 		redirect_to "/"
+	end
+
+	def track_postings
+	end
+
+	def view_postings
+		@postings = current_user.listings
+	end
+
+	def update_postings
+	end
+
+	def update_preferences
 	end
 end
