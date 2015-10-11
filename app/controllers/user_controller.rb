@@ -13,6 +13,7 @@ class UserController < ApplicationController
 	end
 
 	def index
+		puts "Home page"
 		@user = User.new
 	end
 
