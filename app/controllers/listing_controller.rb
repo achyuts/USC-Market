@@ -16,7 +16,7 @@ class ListingController < ApplicationController
 			render :json => { error: "No category found"}
 		else
 
-			Listing.select do |listing|
+			listings = Listing.select do |listing|
 				listing.categories.include?(category)
 			end		
 			render json: listings.to_json
