@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'user#index'
 
 
+  # listing
+  get '/sell' => "listing#new"
+  post '/listing/create' => "listing#create"
 
   # user registration
   get '/register' => "user#form"

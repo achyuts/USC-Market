@@ -24,3 +24,11 @@
 .centerText {
 	text-align: center;
 }
+
+.errorText {
+	color: red;
+}
+
+.hidden {
+	visibility: false;
+}

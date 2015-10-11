@@ -1,9 +1,36 @@
 class ListingController < ApplicationController
 	include SessionsHelper
+
+	def new
+		@listing = Listing.new
+	end
+
+	def create
+		puts "Attempting to create a listing"
+		puts "Parameters" + "\n" * 5
+		puts params
+
+		listing_params = Hash.new
+		params["listing"].each {|k, v| listing_params[k.to_sym] = v}
+		@listing = Listing.new(listing_params)
+
+		if @listing.save!
+			puts "Listing saved!"
+		else
+			puts "Listing not saved!"
+		end
+
+		redirect_to "/"
+	end
+
 	def buy
 		user = current_user
 		# we dont want to show your own listing.. that's stupid
 		@listings = Listing.select {|listing| listing.user_id != current_user}
+
+		# newest listings at the top
+		@listings.sort_by &:created_at
+		@listings.reverse!
 	end
 
 	def sell
@@ -22,5 +49,4 @@ class ListingController < ApplicationController
 			render json: listings.to_json
 		end
 	end
-
 end

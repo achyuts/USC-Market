@@ -1,0 +1,55 @@
+<div class="sellingContainer">
+
+	<%= form_for @listing, url: {action: "create"}, html: {class: "sellingContainer"} do |form| %>
+		<p class="largeText centerText">
+			List an item!
+		</p>	
+
+		<p class="hidden mediumText errorText">
+
+		</p>
+		<p class="mediumText">
+			What category is your item in?
+		</p>
+		<%= form.select :category, Category.all.collect {|c| c.title} %>
+		<br>
+		<br>
+
+		<p class="mediumText">
+			Item name?
+		</p>
+		<%= form.text_field :title %>
+		<br>
+		<br>
+
+		<p class="mediumText">
+			Price?
+		</p>
+		<span>$</span>
+		<%= form.text_field :price, class: "priceTextField" %>
+		<br>
+		<br>
+
+		<p class="mediumText">
+			Condition:
+		</p>
+		<%= form.select :condition, ["New", "Unused", "Used"] %>
+		<br>
+		<br>
+
+		<p class="mediumText">
+			Description:
+		</p>
+		<%= form.text_area(:description, cols: 60, rows: 10) %>
+		<br>
+		<br>
+
+		<p class="mediumText">
+			Describe the pickup location/options:
+		</p>
+		<%= form.text_field :location %>
+		<br> <br>
+
+		<%= form.submit "Sell item" %>
+	<% end %>
+</div>

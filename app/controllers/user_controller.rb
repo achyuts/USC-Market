@@ -14,7 +14,8 @@ class UserController < ApplicationController
 
 
 		if @user.save!
-			@user.password = params[:password]
+			@user.password = params["user"][:password]
+			@user.save!
 			# redirect_to :home
 			puts "User saved:"
 			puts @user
