@@ -74,15 +74,40 @@ class UserController < ApplicationController
 	end
 
 	def track_postings
+		@preferences = []
+		if current_user.price_preference.nil? && current_user.category_preference.nil?
+			@preferences = nil
+		else 
+			@preferences = [current_user.price_preference, current_user.category_preference]
+		end
 	end
 
 	def view_postings
 		@postings = current_user.listings
+		@listing = Listing.new
 	end
 
 	def update_postings
 	end
 
 	def update_preferences
+	end
+
+	def delete_listing
+		puts "Trying to delete listing"
+		id  = params[:id]
+		listing = Listing.find(id)
+		if !listing.nil?
+			Listing.delete(id)
+		end
+		redirect_to :back
+	end
+
+	def update_prefs
+		puts "Trying to update prefrence for user" * 10
+		puts params
+		current_user.update({price_preference: params["user"]["price_preference"].to_i, category_preference: params["user"]["category_preference"].to_i })
+		redirect_to "/account"
+
 	end
 end

@@ -1,0 +1,16 @@
+.preferenceContainer {
+	width: 500px;	
+	margin: auto;
+	display: table;
+	padding: 50px;
+	border: 1px solid black;
+}
+
+.preferenceList {
+	width: 100%;	
+	min-height: 100px;
+}
+
+.preferenceForm {
+	width: 100%;
+}

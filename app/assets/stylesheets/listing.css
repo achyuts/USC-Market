@@ -6,6 +6,7 @@
 }
 
 .listingContainer {
+	min-height: 100px;
 	width: 100%;
 	/*min-height: 200px;*/
 	display: table;

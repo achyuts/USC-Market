@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/register' => "user#form"
   post '/create_user' => "user#create_user"
 
-  get '/sendText' => 'home#sendText'
+  # get '/sendText' => 'home#sendText'
 
   # api crap
   get '/categories/api' => "category#api"
@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   get '/account/view-postings' => "user#view_postings"
   post '/account/update-preferences' => "user#update_preferences"
   post '/account/update-postings' => "user#update_postings"
-
+  post  '/delete/id' => "user#delete_listing"
+  post '/update_prefs' => "user#update_prefs"
 
   get 'account'  => "user#edit"
 

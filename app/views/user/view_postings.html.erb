@@ -1,5 +1,5 @@
 <div class = "fullListingContainer">
-	<% if @postings.nil? %>
+	<% if @postings.nil? or @postings.empty? %>
 		<p class="largeText centerText">
 			You have no items listed! 
 		</p>
@@ -13,6 +13,7 @@
 				<p class="listingTitle largeText">
 					<%= posting.title %>
 				</p>
+				<br>
 
 				<p class="listingDescription mediumText">
 					<%= posting.description%>
@@ -21,13 +22,12 @@
 				<p class="listingPrice">
 					Price: $<%= posting.price%>
 				</p>		
-			<% end %> 
 
-			<a href="/listings/delete/<%=posting.id%>">
-				<button class="	removeButton">	
-				Remove Listing 
-				</button>
-			</a>
+				<%=form_for(@listing, url: {action: "delete_listing"}) do |f| %>
+     
+				<%= f.button "Delete Listing", name:"id", value: posting.id, class: "removeButton"%>
+				<% end %>
+			<% end %> 
 		</div>
 	<% end %>
 </div>

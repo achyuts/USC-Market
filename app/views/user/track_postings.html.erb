@@ -1,27 +1,17 @@
-<div class = "fullListingContainer">
-	<% if @postings.nil? %>
-		<p class="largeText centerText">
-			You have no items listed! 
-		</p>
-		<p class="mediumText centerText">
-			(they will appear here when you start to sell)
+<div class="preferenceContainer">
+	<p class="largeText centerText">
+		Item Preferences!</p>
+
+	<%=form_for current_user, url: {action: "update_prefs"}, :method => :POST do |f| %>
+		<p class="mediumText">
+			Category:
 			</p>
-	<% else %>
+		<%= f.select :category_preference, options_for_select(Category.all.collect {|c| [c.title, c.id]})%>
+		<br>
+		<p class="mediumText">Price</p>
+		<span>$</span><%=f.text_field :price_preference%>
+		<br>
 
-		<div class ="listingContainer">
-			<% @posting.each do |posting| %>
-				<p class="listingTitle largeText">
-					<%= posting.title %>
-				</p>
-
-				<p class="listingDescription mediumText">
-					<%= posting.description%>
-				</p>
-				<br>
-				<p class="listingPrice">
-					Price: $<%= posting.price%>
-				</p>		
-			<% end %> 	
-		</div>
+	 	<%=f.button "Update" %>
 	<% end %>
 </div>
