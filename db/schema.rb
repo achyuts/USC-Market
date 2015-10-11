@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010201555) do
+ActiveRecord::Schema.define(version: 20151011000555) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_listings", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "listing_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "listings", force: :cascade do |t|
@@ -29,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151010201555) do
     t.string   "condition"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "user_id"
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -36,6 +44,7 @@ ActiveRecord::Schema.define(version: 20151010201555) do
     t.float    "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "test_models", force: :cascade do |t|
@@ -49,10 +58,10 @@ ActiveRecord::Schema.define(version: 20151010201555) do
     t.string   "last_name"
     t.string   "email"
     t.string   "facebook_id"
-    t.string   "password"
     t.boolean  "undergraduate"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "password_hash"
   end
 
 end

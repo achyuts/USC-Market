@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+
+  root 'user#index'
+
+
+
+  # api crap
+  get '/categories/api' => "category#api"
+  get '/categories/:category_name/api' => "listing#api"
+
+
+  post 'user' => "user#login"
+  post '/logout' => "user#logout"
+
+  get '/buy' => "listing#buy"
+  get '/sell' => "listing#sell"
+  # match '/home' => 'user#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

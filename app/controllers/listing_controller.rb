@@ -7,7 +7,7 @@ class ListingController < ApplicationController
 	end
 
 	def sell
-
+		@listing = Listing.new
 	end
 
 	def api

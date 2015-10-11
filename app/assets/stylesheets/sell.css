@@ -1,0 +1,9 @@
+.sellingContainer {
+	width: 400px;
+	margin: auto;
+	display: table;
+}
+
+.sellingForm {
+	width: 100%;
+}
