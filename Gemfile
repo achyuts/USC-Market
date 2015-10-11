@@ -44,6 +44,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 
+gem 'sms-easy'
 group :production do
   gem 'pg'
 end

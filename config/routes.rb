@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
 
+  get '/sendText' => 'home#sendText'
   # api crap
   get '/categories/api' => "category#api"
   get '/categories/:category_name/api' => "listing#api"
