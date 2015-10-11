@@ -1,1 +1,1 @@
-SMSEasy::Client.config['from_address'] = "jamalmoon@gmail.com"
+SMSEasy::Client.config['from_address'] = "jmalmoon@gmail.com"
