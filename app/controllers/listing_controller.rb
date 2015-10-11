@@ -33,6 +33,12 @@ class ListingController < ApplicationController
 		user = current_user
 		# we dont want to show your own listing.. that's stupid
 		@listings = Listing.select {|listing| listing.user_id != current_user}
+		if !current_user.price_preference.nil?
+			@listings = @listings.select {|l| l.price < user.price_preference}
+		end
+		if !current_user.category_preference.nil?
+			@listings = @listings.select {|l| l.id == user.category_preference}
+		end
 
 		# newest listings at the top
 		@listings.sort_by &:created_at

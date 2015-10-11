@@ -10,23 +10,25 @@
 
 		<div class ="listingContainer">
 			<% @postings.each do |posting| %>
-				<p class="listingTitle largeText">
-					<%= posting.title %>
-				</p>
-				<br>
+				<div class="preferenceList">
+					<p class="listingTitle largeText">
+						<%= posting.title %>
+					</p>
+					<br><br>
 
-				<p class="listingDescription mediumText">
-					<%= posting.description%>
-				</p>
-				<br>
-				<p class="listingPrice">
-					Price: $<%= posting.price%>
-				</p>		
+					<p class="listingDescription mediumText">
+						<%= posting.description%>
+					</p>
+					<br>
+					<p class="listingPrice">
+						Price: $<%= posting.price%>
+					</p>		
 
-				<%=form_for(@listing, url: {action: "delete_listing"}) do |f| %>
-     
-				<%= f.button "Delete Listing", name:"id", value: posting.id, class: "removeButton"%>
-				<% end %>
+					<%=form_for(@listing, url: {action: "delete_listing"}) do |f| %>
+	     
+					<%= f.button "Delete Listing", name:"id", value: posting.id, class: "removeButton"%>
+					<% end %>
+				</div>
 			<% end %> 
 		</div>
 	<% end %>

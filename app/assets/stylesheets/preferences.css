@@ -8,7 +8,9 @@
 
 .preferenceList {
 	width: 100%;	
-	min-height: 100px;
+	min-height: 110px;
+	display: table;
+	/*border-bottom: 1px solid black;*/
 }
 
 .preferenceForm {
